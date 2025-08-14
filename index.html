@@ -68,6 +68,31 @@
         font-size: 1.8rem;
         cursor: pointer;
         color: var(--accent);
+        z-index: 1100;
+    }
+    .nav-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background: var(--primary-dark);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 1050;
+    }
+    .nav-overlay.show {
+        display: flex;
+    }
+    .nav-overlay li {
+        margin: 1rem 0;
+    }
+    .nav-overlay a {
+        font-size: 2rem;
+        color: var(--accent);
+        text-decoration: none;
     }
     .hero {
         min-height: 100vh;
@@ -252,80 +277,12 @@
         text-align: center;
         padding: 1.5rem;
     }
-    @media (max-width: 1024px) {
-        .hero {
-            flex-direction: column;
-            text-align: center;
-            padding: 3rem 1.5rem;
-        }
-        .network-container {
-            height: 400px;
-            margin-top: 2rem;
-        }
-        .features-grid {
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        }
-    }
     @media (max-width: 768px) {
         .nav-links {
             display: none;
-            flex-direction: column;
-            gap: 1rem;
-            width: 100%;
-            background: var(--primary-dark);
-            padding: 1rem;
-        }
-        .nav-links.show {
-            display: flex;
         }
         .hamburger {
             display: block;
-        }
-        .hero-title {
-            font-size: clamp(2rem, 5vw, 3rem);
-        }
-        .hero-subtitle {
-            font-size: 1.2rem;
-        }
-        .network-map {
-            width: 300px;
-            height: 250px;
-        }
-        .stats-container {
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-        }
-        .sub-footer {
-            grid-template-columns: 1fr;
-            text-align: center;
-        }
-    }
-    @media (max-width: 480px) {
-        .nav-container {
-            padding: 1rem;
-        }
-        .logo {
-            font-size: 1.2rem;
-        }
-        .nav-links {
-            flex-direction: column;
-            gap: 0.5rem;
-            width: 100%;
-        }
-        .hero-title {
-            font-size: 2rem;
-        }
-        .features-title {
-            font-size: 2rem;
-        }
-        .feature-card img.featureImage {
-            height: 150px;
-        }
-        .stats-container {
-            grid-template-columns: 1fr;
-        }
-        footer p {
-            font-size: 0.85rem;
         }
     }
 </style>
@@ -333,16 +290,16 @@
 <body>
 <nav>
     <div class="nav-container">
-        <a href="index.html" class="logo">ZAN0FORGE</a>
+        <a href="index.html" class="logo">ZANOFORGE</a>
         <div class="hamburger" id="hamburger">&#9776;</div>
-        <ul class="nav-links" id="navLinks">
-            <li><a href="index.html">HOME</a></li>
-            <li><a href="about.html">ABOUT US</a></li>
-            <li><a href="services.html">SERVICES</a></li>
-            <li><a href="contact.html">CONTACT US</a></li>
-        </ul>
     </div>
 </nav>
+<ul class="nav-overlay" id="navOverlay">
+    <li><a href="index.html">HOME</a></li>
+    <li><a href="about.html">ABOUT US</a></li>
+    <li><a href="services.html">SERVICES</a></li>
+    <li><a href="contact.html">CONTACT US</a></li>
+</ul>
 <section class="hero">
     <div class="hero-content">
         <h1 class="hero-title">
@@ -355,30 +312,22 @@
     </div>
     <div class="network-container">
         <div class="network-map">
-            <div class="network-node"></div>
-            <div class="network-node"></div>
-            <div class="network-node"></div>
-            <div class="network-node"></div>
-            <div class="network-node"></div>
-            <div class="network-node"></div>
-            <div class="network-node"></div>
-            <div class="network-node"></div>
-            <div class="network-node"></div>
-            <div class="network-node"></div>
-            <div class="network-node"></div>
-            <div class="network-node"></div>
+            <div class="network-node"></div><div class="network-node"></div><div class="network-node"></div>
+            <div class="network-node"></div><div class="network-node"></div><div class="network-node"></div>
+            <div class="network-node"></div><div class="network-node"></div><div class="network-node"></div>
+            <div class="network-node"></div><div class="network-node"></div><div class="network-node"></div>
         </div>
     </div>
 </section>
 <section class="features">
     <h2 class="features-title">Why Choose Us?</h2>
     <div class="features-grid">
-        <div class="feature-card"><img src="./tech.jpg" alt="Cutting-Edge Technology" class="featureImage"><h3>Cutting-Edge Technology</h3><p>We leverage the latest technologies to keep you ahead.</p></div>
-        <div class="feature-card"><img src="./solution.jpg" alt="Tailored Solutions" class="featureImage"><h3>Tailored Solutions</h3><p>Our solutions are customized for your business needs.</p></div>
-        <div class="feature-card"><img src="./rapid.jpg" alt="Rapid Deployment" class="featureImage"><h3>Rapid Deployment</h3><p>Fast implementation without compromising quality.</p></div>
-        <div class="feature-card"><img src="./security.jpg" alt="Enterprise Security" class="featureImage"><h3>Enterprise Security</h3><p>Bank-grade security protocols protect your data.</p></div>
-        <div class="feature-card"><img src="./scalable.jpg" alt="Scalable Architecture" class="featureImage"><h3>Scalable Architecture</h3><p>Our solutions grow with your business.</p></div>
-        <div class="feature-card"><img src="./support.jpg" alt="24/7 Support" class="featureImage"><h3>24/7 Support</h3><p>Round-the-clock expert support available.</p></div>
+        <div class="feature-card"><img src="./tech.jpg" class="featureImage"><h3>Cutting-Edge Technology</h3><p>We leverage the latest technologies to keep you ahead.</p></div>
+        <div class="feature-card"><img src="./solution.jpg" class="featureImage"><h3>Tailored Solutions</h3><p>Our solutions are customized for your business needs.</p></div>
+        <div class="feature-card"><img src="./rapid.jpg" class="featureImage"><h3>Rapid Deployment</h3><p>Fast implementation without compromising quality.</p></div>
+        <div class="feature-card"><img src="./security.jpg" class="featureImage"><h3>Enterprise Security</h3><p>Bank-grade security protocols protect your data.</p></div>
+        <div class="feature-card"><img src="./scalable.jpg" class="featureImage"><h3>Scalable Architecture</h3><p>Our solutions grow with your business.</p></div>
+        <div class="feature-card"><img src="./support.jpg" class="featureImage"><h3>24/7 Support</h3><p>Round-the-clock expert support available.</p></div>
     </div>
 </section>
 <section class="stats">
@@ -392,9 +341,9 @@
     <div>
         <h3>Company Profile</h3>
         <p class="juicy-profile">
-            Since 2019, <strong>ZanoForge Solutions Africa</strong> has been turning ambitious ideas into industry-leading systems.  
-            From enterprise-grade infrastructure to agile cloud solutions, we partner with businesses ready to dominate their markets.  
-            We don’t just deliver IT—we engineer growth, safeguard your data like national treasure, and ensure you’re always three steps ahead of your competitors.  
+            Since 2019, <strong>ZanoForge Solutions Africa</strong> has been turning ambitious ideas into industry-leading systems.
+            From enterprise-grade infrastructure to agile cloud solutions, we partner with businesses ready to dominate their markets.
+            We don’t just deliver IT—we engineer growth, safeguard your data like national treasure, and ensure you’re always three steps ahead of your competitors.
             When you work with us, innovation isn’t an add-on—it’s our standard.
         </p>
     </div>
@@ -420,9 +369,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }, { threshold: 0.2 });
     sections.forEach(sec => observer.observe(sec));
     const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('navLinks');
+    const navOverlay = document.getElementById('navOverlay');
+    let menuOpen = false;
     hamburger.addEventListener('click', () => {
-        navLinks.classList.toggle('show');
+        menuOpen = !menuOpen;
+        navOverlay.classList.toggle('show');
+        hamburger.innerHTML = menuOpen ? '&times;' : '&#9776;';
     });
 });
 </script>
