@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZanoForge - Our Services</title>
+<style>
+:root {
+    --primary: #222527;
+    --primary-dark: #222527;
+    --accent: #3D74B2;
+    --light: #FCFCFC;
+    --gray-light: #D0DBDD;
+    --white: #ffffff;
+    --gradient-primary: linear-gradient(135deg, #222527 0%, #3D74B2 50%, #222527 100%);
+    --gradient-dark: linear-gradient(135deg, #3D74B2 0%, #222527 100%);
+    --shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    --shadow-lg: 0 35px 60px -12px rgba(0, 0, 0, 0.4);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: "Segoe UI", Roboto, sans-serif;
+    color: var(--white);
+    background: var(--white);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+nav {
+    background: var(--primary-dark);
+    border-bottom: 1px solid var(--accent);
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+.nav-container {
+    max-width: 1400px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+.logo {
+    color: var(--accent);
+    font-size: 1.5rem;
+    font-weight: 800;
+    text-decoration: none;
+}
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+.nav-links a {
+    text-decoration: none;
+    color: var(--accent);
+    font-weight: 500;
+}
+.hero {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    position: relative;
+    background: url('./serv.jpg') center/cover no-repeat;
+    color: var(--white);
+}
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+}
+.hero-content {
+    position: relative;
+    text-align: center;
+    z-index: 1;
+}
+.hero-title {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+.hero-title .highlight { color: var(--accent); }
+.hero-subtitle { font-size: 1.3rem; font-weight: 300; }
+section {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease-out;
+}
+section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.services {
+    padding: 6rem 2rem;
+    background: var(--light);
+    color: var(--primary-dark);
+    text-align: center;
+}
+.services-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.services-grid {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    max-width: 1100px;
+    margin: auto;
+    justify-items: center;
+}
+.service-card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    text-align: center;
+    transition: 0.3s;
+    width: 100%;
+    max-width: 320px;
+}
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+    background-color: var(--gray-light);
+}
+.service-card h3 {
+    color: var(--accent);
+    margin-bottom: 1rem;
+}
+.get-quote-btn {
+    margin-top: 3rem;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    background: var(--gradient-primary);
+    color: var(--white);
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.get-quote-btn:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow);
+}
+footer {
+    background: var(--primary-dark);
+    color: var(--white);
+    text-align: center;
+    padding: 1.5rem;
+}
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+    }
+    .nav-links {
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .services {
+        padding: 4rem 1rem;
+    }
+    .services-title {
+        font-size: 2.5rem;
+    }
+}
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    .get-quote-btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+    }
+}
+</style>
+</head>
+<body>
+<nav>
+    <div class="nav-container">
+        <a href="index.html" class="logo">ZANOFORGE</a>
+        <ul class="nav-links">
+            <li><a href="home.html">HOME</a></li>
+            <li><a href="about.html">ABOUT US</a></li>
+            <li><a href="services.html">SERVICES</a></li>
+            <li><a href="contact.html">CONTACT US</a></li>
+        </ul>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="hero-content">
+        <h1 class="hero-title">Our <span class="highlight">Services</span></h1>
+        <p class="hero-subtitle">Empowering your business through technology</p>
+    </div>
+</section>
+
+<section class="services">
+    <h2 class="services-title">What We Offer</h2>
+    <div class="services-grid">
+        <div class="service-card">
+            <h3>Web Development</h3>
+            <p>We design and build custom websites tailored to your brand, optimized for performance, security, and user experience.</p>
+        </div>
+        <div class="service-card">
+            <h3>Application Development</h3>
+            <p>Our team creates responsive, cross-platform mobile applications to connect you with customers on any device.</p>
+        </div>
+        <div class="service-card">
+            <h3>IT Consulting</h3>
+            <p>We provide expert advice to streamline your IT infrastructure, improve efficiency, and reduce operational costs.</p>
+        </div>
+        <div class="service-card">
+            <h3>Digital Marketing</h3>
+            <p>From SEO to social media strategies, we help you grow your online presence and engage with your target audience effectively.</p>
+        </div>
+        <div class="service-card">
+            <h3>Custom Software Solutions</h3>
+            <p>We develop scalable and secure software systems designed to meet your specific business challenges.</p>
+        </div>
+    </div>
+    <button class="get-quote-btn" onclick="window.location.href='contact.html'">Get a Quote</button>
+</section>
+
+<footer>
+    <p>&copy; 2025 ZanoForge. All Rights Reserved. | Shaping Ideas Into Reality</p>
+</footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const sections = document.querySelectorAll("section");
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add("visible");
+        });
+    }, { threshold: 0.2 });
+    sections.forEach(sec => observer.observe(sec));
+});
+</script>
+</body>
+</html>

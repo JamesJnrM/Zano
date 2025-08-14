@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZanoForge - Contact Us</title>
+<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+<style>
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    }
+
+    :root {
+        --primary: #222527;
+        --primary-dark: #222527;
+        --accent: #3D74B2;
+        --light: #FCFCFC;
+        --gray-light: #D0DBDD;
+        --white: #ffffff;
+        --gradient-primary: linear-gradient(135deg, #222527 0%, #3D74B2 50%, #222527 100%);
+        --gradient-dark: linear-gradient(135deg, #3D74B2 0%, #222527 100%);
+        --shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        --shadow-lg: 0 35px 60px -12px rgba(0, 0, 0, 0.4);
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        color: var(--primary-dark);
+        background: var(--white);
+        line-height: 1.6;
+        overflow-x: hidden;
+    }
+
+    nav {
+        background: var(--primary-dark);
+        border-bottom: 1px solid var(--accent);
+        position: sticky;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+    }
+
+    .nav-container {
+        max-width: 1400px;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+    }
+
+    .logo {
+        color: var(--accent);
+        font-size: 1.5rem;
+        font-weight: 800;
+        text-decoration: none;
+    }
+
+    .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 2rem;
+    }
+
+    .nav-links a {
+        text-decoration: none;
+        color: var(--accent);
+        font-weight: 500;
+    }
+
+    .nav-links a.active {
+        text-decoration: underline;
+    }
+
+    .hero {
+        min-height: 65vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+        position: relative;
+        background: url('./pexels-pixabay-41949.jpg') center/cover no-repeat;
+        color: var(--white);
+        text-align: center;
+    }
+
+    .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.45);
+        z-index: 0;
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 1;
+        max-width: 800px;
+    }
+
+    .hero-content h1 {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        font-weight: 800;
+        margin-bottom: 1rem;
+    }
+
+    .hero-content p {
+        font-size: 1.3rem;
+        color: var(--light);
+    }
+
+    .contact {
+        padding: 4rem 2rem;
+        background: var(--light);
+    }
+
+    .contact-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1.2fr;
+        gap: 2rem;
+    }
+
+    .contact-info {
+        background: var(--primary-dark);
+        border: 1px solid var(--gray-light);
+        padding: 2rem;
+        border-radius: 20px;
+    }
+
+    .contact-info img {
+        width: 2rem;
+        height: 2rem;
+    }
+
+    .contact-info h2 {
+        color: white;
+        margin-bottom: 1.5rem;
+    }
+
+    .contact-item {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 1rem;
+        align-items: center;
+        padding: 0.5rem;
+        border-radius: 10px;
+        color: white;
+        transition: all 0.3s ease;
+        background: var(--accent);
+    }
+
+    .contact-item:hover {
+        border-color: var(--accent);
+        box-shadow: var(--shadow);
+    }
+
+    .contact-icon {
+        font-size: 1.5rem;
+        background: var(--accent);
+        color: var(--white);
+        width: 50px;
+        height: 50px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+
+    .contact-form {
+        background: var(--white);
+        border: 1px solid var(--gray-light);
+        padding: 2rem;
+        border-radius: 20px;
+    }
+
+    .contact-form h2 {
+        color: var(--primary);
+        margin-bottom: 1.5rem;
+    }
+
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+
+    .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        width: 100%;
+        padding: 1rem;
+        border: 1px solid var(--gray-light);
+        border-radius: 12px;
+        font-size: 1rem;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+        border-color: var(--accent);
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(61, 116, 178, 0.1);
+    }
+
+    textarea {
+        resize: vertical;
+        min-height: 120px;
+    }
+
+    .submit-btn {
+        background: var(--accent);
+        color: var(--white);
+        border: none;
+        padding: 1rem 2rem;
+        border-radius: 50px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+
+    .submit-btn:hover {
+        background: #2c5a87;
+    }
+
+    .success-message {
+        background: #10b981;
+        color: white;
+        padding: 1rem;
+        border-radius: 8px;
+        margin-bottom: 1rem;
+        display: none;
+    }
+
+    .locations {
+        padding: 4rem 2rem;
+        background: var(--white);
+    }
+
+    .section-title {
+        text-align: center;
+        font-size: 2.5rem;
+        color: var(--primary);
+        margin-bottom: 3rem;
+    }
+
+    .locations-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+    }
+
+    .location-card {
+        background: var(--white);
+        border: 1px solid var(--gray-light);
+        padding: 2rem;
+        border-radius: 20px;
+        text-align: center;
+        transition: all 0.3s ease;
+    }
+
+    .location-card:hover {
+        border-color: var(--accent);
+        box-shadow: var(--shadow-lg);
+    }
+
+    .location-icon {
+        background: var(--accent);
+        color: var(--white);
+        width: 60px;
+        height: 60px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        margin: 0 auto 1rem;
+    }
+
+    footer {
+        background: var(--primary-dark);
+        color: var(--white);
+        text-align: center;
+        padding: 1.5rem;
+    }
+
+    section {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: all 0.8s ease-out;
+    }
+    section.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    @media (max-width: 1024px) {
+        .contact-container {
+            grid-template-columns: 1fr;
+        }
+        .form-row {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .nav-container {
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .hero-content h1 {
+            font-size: 2rem;
+        }
+        .hero-content p {
+            font-size: 1rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .nav-links {
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .submit-btn {
+            font-size: 0.9rem;
+            padding: 0.8rem 1rem;
+        }
+    }
+</style>
+</head>
+<body>
+<nav>
+    <div class="nav-container">
+        <a href="index.html" class="logo">ZANOFORGE</a>
+        <ul class="nav-links">
+            <li><a href="home.html">HOME</a></li>
+            <li><a href="about.html">ABOUT US</a></li>
+            <li><a href="services.html">SERVICES</a></li>
+            <li><a href="contact.html" class="active">CONTACT US</a></li>
+        </ul>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>Get In Touch</h1>
+        <p>Ready to transform your business? Let's discuss how ZanoForge can help you achieve your technology goals.</p>
+    </div>
+</section>
+
+<section class="contact">
+    <div class="contact-container">
+        <div class="contact-info">
+            <h2>Let's Connect</h2>
+            <div class="contact-item"><div><img src="./envelope.png"/></div><div><strong>Email Us</strong><br>info@zanoforge.africa<br>support@zanoforge.africa</div></div>
+            <div class="contact-item"><div><img src="./phone.png"/></div><div><strong>Call Us</strong><br>+263 71 622 7194<br>+263 77 625 1913</div></div>
+            <div class="contact-item"><div><img src="./time-left.png"/></div><div><strong>Business Hours</strong><br>Mon-Fri: 8AM - 5PM<br>Sat: 9AM - 1PM</div></div>
+            <div class="contact-item"><div><img src="./support.png"/></div><div><strong>24/7 Emergency Support</strong><br>+263 -- --- ----<br>emergency@zanoforge.africa</div></div>
+        </div>
+        <div class="contact-form">
+            <h2>Send Us a Message</h2>
+            <div class="success-message" id="successMessage">Thank you for your message! We'll get back to you as soon as possible.</div>
+            <form id="contactForm">
+                <div class="form-row">
+                    <div class="form-group"><label>First Name *</label><input type="text" required></div>
+                    <div class="form-group"><label>Last Name *</label><input type="text" required></div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group"><label>Email Address *</label><input type="email" required></div>
+                    <div class="form-group"><label>Phone Number</label><input type="tel"></div>
+                </div>
+                <div class="form-group"><label>Message *</label><textarea required></textarea></div>
+               <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2025 ZanoForge. All Rights Reserved. | Shaping Ideas Into Reality</p>
+</footer>
+
+<script>
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    document.getElementById('successMessage').style.display = 'block';
+    this.reset();
+    setTimeout(() => document.getElementById('successMessage').style.display = 'none', 5000);
+});
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const sections = document.querySelectorAll("section");
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.2 });
+
+    sections.forEach(section => observer.observe(section));
+});
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    emailjs.send("service_msujrxc", "template_znq7p89", {
+        first_name: this.first_name.value,
+        last_name: this.last_name.value,
+        email: this.email.value,
+        phone: this.phone.value,
+        message: this.message.value,
+        to_email: "jamesjmasaga@gmail.com"
+    })
+    .then(() => {
+        document.getElementById('successMessage').style.display = 'block';
+        this.reset();
+        setTimeout(() => document.getElementById('successMessage').style.display = 'none', 5000);
+    }, (error) => {
+        alert("Failed to send message. Please try again later.");
+        console.error(error);
+    });
+});
+</script>
+</body>
+</html>
