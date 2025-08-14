@@ -57,6 +57,37 @@ nav {
     color: var(--accent);
     font-weight: 500;
 }
+
+/* Hamburger button */
+.hamburger {
+    display: none;
+    font-size: 1.8rem;
+    color: var(--accent);
+    cursor: pointer;
+    z-index: 1001;
+}
+
+/* Fullscreen nav overlay */
+.nav-overlay {
+    position: fixed;
+    inset: 0;
+    background: var(--primary-dark);
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    z-index: 1000;
+}
+.nav-overlay.show {
+    display: flex;
+}
+.nav-overlay a {
+    color: var(--accent);
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+
 .hero {
     min-height: 70vh;
     display: flex;
@@ -157,32 +188,14 @@ footer {
     text-align: center;
     padding: 1.5rem;
 }
+
+/* Mobile styles */
 @media (max-width: 768px) {
-    .nav-container {
-        flex-direction: column;
-    }
     .nav-links {
-        gap: 1rem;
-        flex-wrap: wrap;
-        justify-content: center;
+        display: none;
     }
-    .services {
-        padding: 4rem 1rem;
-    }
-    .services-title {
-        font-size: 2.5rem;
-    }
-}
-@media (max-width: 480px) {
-    .hero-title {
-        font-size: 2rem;
-    }
-    .hero-subtitle {
-        font-size: 1rem;
-    }
-    .get-quote-btn {
-        padding: 0.8rem 1.5rem;
-        font-size: 1rem;
+    .hamburger {
+        display: block;
     }
 }
 </style>
@@ -197,8 +210,17 @@ footer {
             <li><a href="services.html">SERVICES</a></li>
             <li><a href="contact.html">CONTACT US</a></li>
         </ul>
+        <div class="hamburger" id="hamburger">&#9776;</div>
     </div>
 </nav>
+
+<!-- Fullscreen nav overlay -->
+<div class="nav-overlay" id="navOverlay">
+    <a href="index.html">HOME</a>
+    <a href="about.html">ABOUT US</a>
+    <a href="services.html">SERVICES</a>
+    <a href="contact.html">CONTACT US</a>
+</div>
 
 <section class="hero">
     <div class="hero-content">
@@ -247,8 +269,20 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }, { threshold: 0.2 });
     sections.forEach(sec => observer.observe(sec));
+
+    const hamburger = document.getElementById("hamburger");
+    const navOverlay = document.getElementById("navOverlay");
+
+    hamburger.addEventListener("click", () => {
+        navOverlay.classList.toggle("show");
+    });
+
+    document.querySelectorAll(".nav-overlay a").forEach(link => {
+        link.addEventListener("click", () => {
+            navOverlay.classList.remove("show");
+        });
+    });
 });
 </script>
 </body>
 </html>
-
