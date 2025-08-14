@@ -4,284 +4,274 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ZanoForge - Contact Us</title>
-<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
-    body {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-        position: relative;
-        z-index: 9999;
-    }
-
-    :root {
-        --primary: #222527;
-        --primary-dark: #222527;
-        --accent: #3D74B2;
-        --light: #FCFCFC;
-        --gray-light: #D0DBDD;
-        --white: #ffffff;
-        --gradient-primary: linear-gradient(135deg, #222527 0%, #3D74B2 50%, #222527 100%);
-        --gradient-dark: linear-gradient(135deg, #3D74B2 0%, #222527 100%);
-        --shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-        --shadow-lg: 0 35px 60px -12px rgba(0, 0, 0, 0.4);
-    }
-
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-    nav {
-        background: var(--primary-dark);
-        border-bottom: 1px solid var(--accent);
-        position: sticky;
-        top: 0;
-        width: 100%;
-        z-index: 10000;
-    }
-
-    .nav-container {
-        max-width: 1400px;
-        margin: auto;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 1rem 2rem;
-        position: relative;
-    }
-
-    .logo {
-        color: var(--accent);
-        font-size: 1.5rem;
-        font-weight: 800;
-        text-decoration: none;
-        z-index: 10001;
-    }
-
+:root {
+    --primary: #222527;
+    --primary-dark: #222527;
+    --accent: #3D74B2;
+    --light: #FCFCFC;
+    --gray-light: #D0DBDD;
+    --white: #ffffff;
+    --gradient-primary: linear-gradient(135deg, #222527 0%, #3D74B2 50%, #222527 100%);
+    --gradient-dark: linear-gradient(135deg, #3D74B2 0%, #222527 100%);
+    --shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    --shadow-lg: 0 35px 60px -12px rgba(0, 0, 0, 0.4);
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    color: var(--primary-dark);
+    background: var(--white);
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+    z-index: 10;
+}
+nav {
+    background: var(--primary-dark);
+    border-bottom: 1px solid var(--accent);
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 2000;
+}
+.nav-container {
+    max-width: 1400px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+.logo {
+    color: var(--accent);
+    font-size: 1.5rem;
+    font-weight: 800;
+    text-decoration: none;
+}
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+.nav-links a {
+    text-decoration: none;
+    color: var(--accent);
+    font-weight: 500;
+}
+.nav-links a.active {
+    text-decoration: underline;
+}
+.hamburger {
+    display: none;
+    font-size: 1.8rem;
+    color: var(--accent);
+    cursor: pointer;
+}
+.nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--primary-dark);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 3000;
+}
+.nav-overlay.active {
+    transform: translateX(0);
+}
+.nav-overlay a {
+    color: var(--accent);
+    font-size: 2rem;
+    margin: 1rem 0;
+    text-decoration: none;
+}
+.hero {
+    min-height: 65vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    position: relative;
+    background: url('./pexels-pixabay-41949.jpg') center/cover no-repeat;
+    color: var(--white);
+    text-align: center;
+    z-index: 1;
+}
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 0;
+}
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+}
+.hero-content h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+.hero-content p {
+    font-size: 1.3rem;
+    color: var(--light);
+}
+.contact {
+    padding: 4rem 2rem;
+    background: var(--light);
+    z-index: 1;
+    position: relative;
+}
+.contact-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 2rem;
+}
+.contact-info {
+    background: var(--primary-dark);
+    border: 1px solid var(--gray-light);
+    padding: 2rem;
+    border-radius: 20px;
+}
+.contact-info img {
+    width: 2rem;
+    height: 2rem;
+}
+.contact-info h2 {
+    color: white;
+    margin-bottom: 1.5rem;
+}
+.contact-item {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    align-items: center;
+    padding: 0.5rem;
+    border-radius: 10px;
+    color: white;
+    transition: all 0.3s ease;
+    background: var(--accent);
+}
+.contact-item:hover {
+    border-color: var(--accent);
+    box-shadow: var(--shadow);
+}
+.contact-form {
+    background: var(--white);
+    border: 1px solid var(--gray-light);
+    padding: 2rem;
+    border-radius: 20px;
+}
+.contact-form h2 {
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+}
+.form-group {
+    margin-bottom: 1.5rem;
+}
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid var(--gray-light);
+    border-radius: 12px;
+    font-size: 1rem;
+}
+textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+.submit-btn {
+    background: var(--accent);
+    color: var(--white);
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+}
+.submit-btn:hover {
+    background: #2c5a87;
+}
+.success-message {
+    background: #10b981;
+    color: white;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    display: none;
+}
+footer {
+    background: var(--primary-dark);
+    color: var(--white);
+    text-align: center;
+    padding: 1.5rem;
+    z-index: 1;
+    position: relative;
+}
+@media (max-width: 768px) {
     .nav-links {
-        list-style: none;
-        display: flex;
-        gap: 2rem;
+        display: none;
     }
-
-    .nav-links a {
-        text-decoration: none;
-        color: var(--accent);
-        font-weight: 500;
-    }
-
-    .nav-links a.active {
-        text-decoration: underline;
-    }
-
     .hamburger {
-        display: none;
-        flex-direction: column;
-        cursor: pointer;
-        gap: 5px;
-        z-index: 10001;
-    }
-
-    .hamburger span {
         display: block;
-        height: 3px;
-        width: 25px;
-        background: var(--accent);
     }
-
-    .nav-fullscreen {
-        position: fixed;
-        inset: 0;
-        background: var(--primary-dark);
-        display: none;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 2rem;
-        z-index: 10000;
-    }
-
-    .nav-fullscreen.show {
-        display: flex;
-    }
-
-    .hero {
-        min-height: 65vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 2rem;
-        position: relative;
-        background: url('./pexels-pixabay-41949.jpg') center/cover no-repeat;
-        color: var(--white);
-        text-align: center;
-        z-index: 9999;
-    }
-
-    .hero::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.45);
-        z-index: 0;
-    }
-
-    .hero-content {
-        position: relative;
-        z-index: 1;
-        max-width: 800px;
-    }
-
-    .contact {
-        padding: 4rem 2rem;
-        background: var(--light);
-        z-index: 9999;
-        position: relative;
-    }
-
     .contact-container {
-        max-width: 1200px;
-        margin: 0 auto;
-        display: grid;
-        grid-template-columns: 1fr 1.2fr;
-        gap: 2rem;
+        grid-template-columns: 1fr;
     }
-
-    .contact-info {
-        background: var(--primary-dark);
-        border: 1px solid var(--gray-light);
-        padding: 2rem;
-        border-radius: 20px;
-    }
-
-    .contact-info img {
-        width: 2rem;
-        height: 2rem;
-    }
-
-    .contact-info h2 {
-        color: white;
-        margin-bottom: 1.5rem;
-    }
-
-    .contact-item {
-        display: flex;
-        gap: 1rem;
-        margin-bottom: 1rem;
-        align-items: center;
-        padding: 0.5rem;
-        border-radius: 10px;
-        color: white;
-        background: var(--accent);
-    }
-
-    .contact-icon {
-        font-size: 1.5rem;
-        background: var(--accent);
-        color: var(--white);
-        width: 50px;
-        height: 50px;
-        border-radius: 12px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-shrink: 0;
-    }
-
-    .contact-form {
-        background: var(--white);
-        border: 1px solid var(--gray-light);
-        padding: 2rem;
-        border-radius: 20px;
-    }
-
-    .contact-form h2 {
-        color: var(--primary);
-        margin-bottom: 1.5rem;
-    }
-
-    .form-group {
-        margin-bottom: 1.5rem;
-    }
-
     .form-row {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1rem;
+        grid-template-columns: 1fr;
     }
-
-    .form-group label {
-        display: block;
-        margin-bottom: 0.5rem;
-        font-weight: 500;
-    }
-
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-        width: 100%;
-        padding: 1rem;
-        border: 1px solid var(--gray-light);
-        border-radius: 12px;
-        font-size: 1rem;
-    }
-
-    textarea {
-        resize: vertical;
-        min-height: 120px;
-    }
-
-    .submit-btn {
-        background: var(--accent);
-        color: var(--white);
-        border: none;
-        padding: 1rem 2rem;
-        border-radius: 50px;
-        font-size: 1rem;
-        font-weight: 600;
-        cursor: pointer;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        gap: 0.5rem;
-    }
-
-    footer {
-        background: var(--primary-dark);
-        color: var(--white);
-        text-align: center;
-        padding: 1.5rem;
-        z-index: 9999;
-        position: relative;
-    }
-
-    @media (max-width: 768px) {
-        .nav-links {
-            display: none;
-        }
-        .hamburger {
-            display: flex;
-        }
-    }
+}
 </style>
 </head>
 <body>
 <nav>
     <div class="nav-container">
         <a href="index.html" class="logo">ZANOFORGE</a>
-        <div class="hamburger" id="hamburger">
-            <span></span><span></span><span></span>
-        </div>
         <ul class="nav-links">
             <li><a href="index.html">HOME</a></li>
             <li><a href="about.html">ABOUT US</a></li>
             <li><a href="services.html">SERVICES</a></li>
             <li><a href="contact.html" class="active">CONTACT US</a></li>
         </ul>
+        <div class="hamburger" id="hamburger"><i class="fas fa-bars"></i></div>
     </div>
 </nav>
 
-<div class="nav-fullscreen" id="navFullscreen">
+<div class="nav-overlay" id="navOverlay">
     <a href="index.html">HOME</a>
     <a href="about.html">ABOUT US</a>
     <a href="services.html">SERVICES</a>
@@ -317,7 +307,7 @@
                     <div class="form-group"><label>Phone Number</label><input type="tel" name="phone"></div>
                 </div>
                 <div class="form-group"><label>Message *</label><textarea name="message" required></textarea></div>
-               <button type="submit" class="submit-btn">Send Message</button>
+                <button type="submit" class="submit-btn">Send Message</button>
             </form>
         </div>
     </div>
@@ -327,16 +317,30 @@
     <p>&copy; 2025 ZanoForge. All Rights Reserved. | Shaping Ideas Into Reality</p>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
 <script>
+emailjs.init("YOUR_PUBLIC_KEY");
+
 document.getElementById('hamburger').addEventListener('click', () => {
-    document.getElementById('navFullscreen').classList.toggle('show');
+    document.getElementById('navOverlay').classList.toggle('active');
 });
 
 document.getElementById('contactForm').addEventListener('submit', function(e) {
     e.preventDefault();
-    document.getElementById('successMessage').style.display = 'block';
-    this.reset();
-    setTimeout(() => document.getElementById('successMessage').style.display = 'none', 5000);
+    emailjs.send("service_msujrxc", "template_znq7p89", {
+        first_name: this.first_name.value,
+        last_name: this.last_name.value,
+        email: this.email.value,
+        phone: this.phone.value,
+        message: this.message.value,
+        to_email: "jamesjmasaga@gmail.com"
+    }).then(() => {
+        document.getElementById('successMessage').style.display = 'block';
+        this.reset();
+        setTimeout(() => document.getElementById('successMessage').style.display = 'none', 5000);
+    }, () => {
+        alert("Failed to send message. Please try again later.");
+    });
 });
 </script>
 </body>
